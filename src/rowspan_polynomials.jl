@@ -1,4 +1,3 @@
-using Catalyst, LinearAlgebra, InvertedIndices, SymPy, Symbolics
 
 function rowspan_polynomials(reaction_network, complex_id_vec)
     M = complexstoichmat(reaction_network)*laplacianmat(reaction_network);
@@ -11,7 +10,7 @@ function rowspan_polynomials(reaction_network, complex_id_vec)
     dm = Int(size(M,1) - rank(SymPy.Sym.(symbolics_to_sympy.(M))))
     dn = Int(size(N,1) - rank(SymPy.Sym.(symbolics_to_sympy.(N))))
 
-    if dn == dm 
+    if dn == dm
         println("No rowspan polynomials exist involving the given complexes")
         return
     else
@@ -20,7 +19,7 @@ function rowspan_polynomials(reaction_network, complex_id_vec)
 
     M_a = vcat(M, e[complex_id_vec, :])
 
-    #Find the left nullspace of M_a 
+    #Find the left nullspace of M_a
 
     all_symbolics = unique(reduce(vcat, Symbolics.get_variables.(M_a)))
 
@@ -42,7 +41,7 @@ function rowspan_polynomials(reaction_network, complex_id_vec)
 
     binoms = Symbolics.simplify.(transpose(b)*M)
     invariant = Symbolics.simplify.(sum(binoms, dims=1))
-     
+
     if any(isequal.(invariant[complex_id_vec], 0))
         @warn "No linear invariant exists involving ALL the given complexes"
     end

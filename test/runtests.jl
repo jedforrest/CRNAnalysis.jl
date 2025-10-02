@@ -1,6 +1,9 @@
 using CRNAnalysis
+using Catalyst
+using Graphs
 using Test
 
 @testset "CRNAnalysis.jl" begin
-    # Write your tests here.
+    @testset "Decomposition" include("decomposition_tests.jl")
+
 end
