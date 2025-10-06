@@ -84,7 +84,7 @@ function construct_graph(linear_combo, pivots)
 
     # get all possible combinations (not permutations) of the reactions
     # involved in the linear combinations
-    edges = collect.(combinations.(vertex_sets, 2))
+    edges = collect.(Combinatorics.combinations.(vertex_sets, 2))
 
     #  get just the unique edges (if edges is non-empty)
     if !isempty(edges)

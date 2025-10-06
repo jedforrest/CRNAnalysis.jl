@@ -1,8 +1,9 @@
 module CRNAnalysis
 
+# TODO consolidate
 using RowEchelon, Catalyst, Graphs, Combinatorics, MetaGraphs, ModelingToolkit
-# using Catalyst, Oscar, GAP, RowEchelon
-# using Catalyst, LinearAlgebra, InvertedIndices, SymPy, Symbolics
+using Catalyst, LinearAlgebra, InvertedIndices, SymPy, Symbolics
+using Catalyst, Oscar, GAP, RowEchelon
 
 include("independent_decomposition.jl")
 export independent_decomposition, construct_graph
@@ -10,8 +11,12 @@ export independent_decomposition, construct_graph
 include("generate_subnets.jl")
 export generate_subnets, save_subnet, load_subnet
 
-include("get_Oscar_SteadyStatesystem.jl")
+# TODO
+include("rowspan_invariants.jl")
+export rowspan_invariants
 
-include("rowspan_polynomials.jl")
+# TODO
+include("get_oscar_steadystatesystem.jl")
+export get_oscar_steadystatesystem
 
 end
