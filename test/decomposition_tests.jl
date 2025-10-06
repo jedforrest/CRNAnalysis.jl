@@ -1,10 +1,3 @@
-retina_rn = include("../data/retina.jl")
-
-# Test:
-# - independent_decomposition
-# - ind return early (connected graph)
-
-
 @testset "construct_graph" begin
 
     netstoich = netstoichmat(retina_rn)

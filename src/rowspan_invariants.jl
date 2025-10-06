@@ -1,5 +1,5 @@
-
-function rowspan_polynomials(reaction_network, complex_id_vec)
+# TODO do we need to use SymPy?
+function rowspan_invariants(reaction_network, complex_id_vec)
     M = complexstoichmat(reaction_network)*laplacianmat(reaction_network);
 
     n = size(M, 1);
@@ -11,9 +11,9 @@ function rowspan_polynomials(reaction_network, complex_id_vec)
     dn = Int(size(N,1) - rank(SymPy.Sym.(symbolics_to_sympy.(N))))
 
     if dn == dm
-        println("No rowspan polynomials exist involving the given complexes")
-        return
-    else
+        @info "No rowspan polynomials exist involving the given complexes"
+        return nothing, nothing
+    end
 
     e = Matrix{Int}(I, m, m)
 
@@ -47,5 +47,4 @@ function rowspan_polynomials(reaction_network, complex_id_vec)
     end
 
     return b, invariant
-    end
 end
