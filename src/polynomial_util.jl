@@ -8,7 +8,7 @@ implicit_form(eqn::Equation) = isequal(eqn.rhs, 0) ? eqn.lhs : (eqn.rhs - eqn.lh
 function expand_rational_equation(eqn::Equation)
     f = implicit_form(eqn)
     # collect denominators
-    denoms = [denominator(term)
+    denoms = Num[denominator(term)
         for term in Symbolics.terms(f)
         if is_rational_function(term)
     ]
