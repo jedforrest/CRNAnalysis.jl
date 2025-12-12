@@ -5,6 +5,9 @@ using RowEchelon, Catalyst, Graphs, Combinatorics, MetaGraphs, ModelingToolkit
 using Catalyst, LinearAlgebra, InvertedIndices, SymPy, Symbolics
 using Catalyst, Oscar, GAP, RowEchelon
 
+include("polynomial_util.jl")
+export symbolic_function
+
 include("independent_decomposition.jl")
 export independent_decomposition, construct_graph
 
@@ -17,6 +20,6 @@ export rowspan_invariants
 
 # TODO
 include("get_oscar_steadystatesystem.jl")
-export get_oscar_steadystatesystem
+export get_oscar_steadystatesystem, polynomial_ideal
 
 end

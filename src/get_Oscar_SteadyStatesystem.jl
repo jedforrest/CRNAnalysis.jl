@@ -65,13 +65,9 @@ function polynomial_ideal(eqn_rhs, vars, params)
     oscar_to_cat = Dict((oscar => cat) for (cat, oscar) in cat_to_oscar)
 
     # build Oscar polynomial by substituting oscar vars in Catalyst equations RHS (Right Hand Sides)
-    polys = map(eqn_rhs) do rhs
-        if rhs isa Number  # is a constant e.g. zero
-            RR(rhs)
-        else
-            Symbolics.substitute(rhs, cat_to_oscar)
-        end
-    end
+    f = symbolic_function(eqn_rhs, vars, params)
+    polys = f(oscar_vars, oscar_coeffs)
+
     ideal(RR, polys)
 end
 
