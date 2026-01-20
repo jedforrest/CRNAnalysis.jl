@@ -1,4 +1,4 @@
-test_equal(expr1, expr2) = isequal(simplify(expr1 - expr2), 0)
+test_equal(expr1, expr2) = isequal(Symbolics.simplify(expr1 - expr2), 0)
 test_equal_vec(vec1, vec2) = length(vec1) != length(vec2) ? false : all(test_equal.(vec1, vec2))
 
 @testset "Rowspan polynomials" begin

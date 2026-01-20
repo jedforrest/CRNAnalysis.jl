@@ -3,6 +3,7 @@ using Test
 using Catalyst
 using Graphs
 using Oscar
+using Symbolics
 
 retina_rn = include("../data/retina.jl")
 retina_sn1 = include("../data/retina_sn1.jl")

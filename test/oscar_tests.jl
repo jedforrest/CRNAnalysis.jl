@@ -24,11 +24,9 @@ end
 end
 
 
-I = polynomial_ideal(eqn_rhs, vars, params)
+# I = polynomial_ideal(eqn_rhs, vars, params)
 
+# to_symbolic_polynomial.(gens(G))
 
-to_symbolic_polynomial.(gens(G))
-
-
-params = parameters(rn)
-sym_coeffs = lift_symbolics(G[1], I, params)
+# params = parameters(rn)
+# sym_coeffs = lift_symbolics(G[1], I, params)
