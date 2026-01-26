@@ -5,7 +5,7 @@ is_rational_function(f) = !isequal(denominator(f), 1)
 implicit_form(eqn::Equation) = isequal(eqn.rhs, 0) ? eqn.lhs : (eqn.rhs - eqn.lhs)
 
 # rational equation --> polynomial equation
-function expand_rational_equation(eqn::Equation)
+function expand_rational_equation(eqn::Equation; simplify=true)
     f = implicit_form(eqn)
     # collect denominators
     denoms = Num[denominator(term)
@@ -14,7 +14,7 @@ function expand_rational_equation(eqn::Equation)
     ]
     # expand and simplify
     new_f = f * prod(denoms)
-    Symbolics.simplify(new_f, expand=true)
+    return simplify ? Symbolics.simplify(new_f, expand=true) : new_f
 end
 
 function symbolic_function(eqn_rhs, vars, params)
