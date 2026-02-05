@@ -14,7 +14,7 @@ function expand_rational_equation(eqn::Equation; simplify=true)
     ]
     # expand and simplify
     new_f = f * prod(denoms)
-    return simplify ? Symbolics.simplify(new_f, expand=true) : new_f
+    return simplify ? Symbolics.simplify(new_f) : new_f
 end
 
 function symbolic_function(eqn_rhs, vars, params)
