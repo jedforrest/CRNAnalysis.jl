@@ -1,7 +1,7 @@
 name = "CRNAnalysis"
 uuid = "ba7a2c3a-c301-40a4-abac-0872b600ac53"
-authors = ["jedforrest <forrest.j@unimelb.edu.au> and contributors"]
 version = "1.0.0-DEV"
+authors = ["jedforrest <forrest.j@unimelb.edu.au> and contributors"]
 
 [deps]
 Catalyst = "479239e8-5488-4da2-87a7-35f2df7eef83"
@@ -29,7 +29,7 @@ ModelingToolkit = "9.82.0"
 Oscar = "1.5.0"
 RowEchelon = "0.2.1"
 SymPy = "2.3.3"
-Symbolics = "6.55.0"
+Symbolics = "6.55.0, 7"
 julia = "1.10"
 
 [extras]
